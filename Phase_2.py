@@ -301,7 +301,8 @@ def show_manager_dashboard() -> None:
             with c1:
                 new_name  = st.text_input("Product Name", placeholder="e.g., Crew Neck Sweater")
                 new_desc  = st.text_area("Description",  placeholder="Enter product details...", height=100)
-                new_cat   = st.text_input("Category",    placeholder="e.g., T-Shirts, Jeans, Jackets")
+                _existing_cats = sorted({p["category"] for p in product_store.load()["products"]}) or ["Accessories", "Hoodies", "Jackets", "Jeans", "T-Shirts"]
+                new_cat   = st.selectbox("Category", _existing_cats)
             with c2:
                 new_price = st.number_input("Price ($)",      value=0.01, min_value=0.01, step=0.01)
                 new_stock = st.number_input("Initial Stock",  value=1,    min_value=1,    step=1)
