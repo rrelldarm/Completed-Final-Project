@@ -65,7 +65,7 @@ def render_sidebar() -> None:
 
         if st.session_state.authenticated:
             user = st.session_state.current_user
-            st.markdown(f"**👤 {user['username']}**")
+            st.markdown(f"**{user['username']}**")
             st.caption(f"Role: {st.session_state.user_role}")
             st.divider()
             if st.button("Logout", use_container_width=True):
