@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": "owner1",
+      "username": "owner",
+      "password": "43a0d17178a9d26c9e0fe9a74b0b45e38d32f27aed887a008a54bf6e033bf7b9",
+      "role": "Store Manager",
+      "email": "owner@shop.com"
+    },
+    {
+      "id": "emp1",
+      "username": "employee",
+      "password": "e03d3ec8d5035f8721f5dc64546e59ed790dbcb3b7b598fe57057ccd7b683b00",
+      "role": "Sales Associate",
+      "email": "emp@shop.com"
+    }
+  ]
+}

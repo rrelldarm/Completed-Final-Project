@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": "P001",
+      "name": "Cropped Blank Hoodie",
+      "description": "Comfortable cropped blank hoodie, versatile wardrobe essential",
+      "price": 45.99,
+      "stock": 12,
+      "category": "Hoodies"
+    },
+    {
+      "id": "P002",
+      "name": "Baggy Flared Boot Cut Jeans",
+      "description": "Trendy baggy flared boot cut jeans with vintage wash",
+      "price": 80.99,
+      "stock": 4,
+      "category": "Jeans"
+    },
+    {
+      "id": "P003",
+      "name": "925 Silver Statement Ring",
+      "description": "Sterling silver 925 statement ring with bold design",
+      "price": 55.99,
+      "stock": 2,
+      "category": "Accessories"
+    },
+    {
+      "id": "P004",
+      "name": "Blank Oversized T-Shirt",
+      "description": "Oversized blank t-shirt perfect for layering or casual wear",
+      "price": 35.99,
+      "stock": 18,
+      "category": "T-Shirts"
+    },
+    {
+      "id": "P005",
+      "name": "Faded Washed Leather Jacket",
+      "description": "Premium faded washed leather jacket with vintage appeal",
+      "price": 170.99,
+      "stock": 5,
+      "category": "Jackets"
+    }
+  ]
+}
