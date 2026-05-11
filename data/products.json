@@ -3,7 +3,7 @@
     {
       "id": "P001",
       "name": "Cropped Blank Hoodie",
-      "description": "Comfortable cropped blank hoodie, versatile wardrobe essential",
+      "description": "Cropped Fit\n500 GSM Heavyweight Crossgrain Cut French Terry\n100% Combed Cotton Canadian Milled Fabric\nSoft Hand Feel\nMade in USA",
       "price": 45.99,
       "stock": 12,
       "category": "Hoodies"
@@ -11,7 +11,7 @@
     {
       "id": "P002",
       "name": "Baggy Flared Boot Cut Jeans",
-      "description": "Trendy baggy flared boot cut jeans with vintage wash",
+      "description": "Trendy baggy flared boot cut jeans with vintage wash\nHeavyweight Denim (13 oz, 100% Cotton)\nFlared-Wide Leg Fit (Bootcut)\nPre-Washed and Pre-Shrunk\nMade in USA",
       "price": 80.99,
       "stock": 4,
       "category": "Jeans"
@@ -19,7 +19,7 @@
     {
       "id": "P003",
       "name": "925 Silver Statement Ring",
-      "description": "Sterling silver 925 statement ring with bold design",
+      "description": "Sterling Silver unstructured ring with a shape that ebbs and flows like molten metal. Its unique silhouette and asymmetrical form are designed to add visual interest to any ring stack.",
       "price": 55.99,
       "stock": 2,
       "category": "Accessories"
@@ -27,7 +27,7 @@
     {
       "id": "P004",
       "name": "Blank Oversized T-Shirt",
-      "description": "Oversized blank t-shirt perfect for layering or casual wear",
+      "description": "Cut in a relaxed, oversized silhouette with dropped shoulders, it drapes cleanly on the body. \n100% Cotton\n280 GSM\nGarment dyed\nMade in USA",
       "price": 35.99,
       "stock": 18,
       "category": "T-Shirts"
@@ -35,7 +35,7 @@
     {
       "id": "P005",
       "name": "Faded Washed Leather Jacket",
-      "description": "Premium faded washed leather jacket with vintage appeal",
+      "description": "Iconic style made from butter-soft lamb leather with silver metal hardware and a traditional asymmetric zip fastening, completing the classic aesthetic.\nAsymmetric zip front\nTwo lower zip pockets\nHem loops\nShell: 100% sheep leather\nLining: 100% recycled polyester\nMade in USA",
       "price": 170.99,
       "stock": 5,
       "category": "Jackets"

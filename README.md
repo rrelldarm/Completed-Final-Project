@@ -1,125 +1,136 @@
-# District 9 — Inventory Management App (Phase 2)
+# District 9 - Phase 1
 
-A Streamlit-based inventory and sales management system for a clothing store. Phase 2 rebuilds Phase 1 with a layered architecture, real AI assistance via OpenAI, and secure authentication.
+A multi-page Streamlit web application for managing District 9 clothing store inventory with role-based access control. Store Managers can manage clothing inventory while Sales Associates can view the catalog, log sales, and use an AI-powered inventory assistant.
 
----
+## Project Requirements Met
 
-## Features
+### Multi-Page Application
+- Built with Streamlit using session state management for navigation
+- Dynamic routing based on user role (Store Manager vs Sales Associate)
+- Separate dashboards for each role with distinct functionality
 
-- **Two roles:** Manager (owner) and Associate (employee)
-- **Inventory management:** Add, edit, delete products with low-stock alerts
-- **Sales recording:** Log sales and view full sales history with computed totals
-- **User management:** Register and delete store accounts (manager only)
-- **AI assistant:** Live OpenAI-powered chatbot with access to real inventory and sales data
-- **Secure login:** SHA-256 hashed passwords, no plaintext storage
+### User Authentication
+- **Registration System**: New users can register with username, email, password, and role selection
+- **Login System**: Secure login with credential validation
+- **Logout Functionality**: Users can securely log out from the sidebar
+- **Session State Management**: User session persists across page interactions
 
----
+###  Role-Based Access & Functionality
+- **Store Manager**: Full CRUD operations on clothing inventory (Create, Read, Update, Delete)
+- **Sales Associate**: View-only catalog access, sales logging, and inventory assistant access
 
-## Project Structure
+### JSON-Based Data Storage
+- `data/users.json`: Stores user accounts with credentials and roles
+- `data/products.json`: Stores product inventory with pricing and stock information
+- Automatic file initialization with sample data on first run
 
-```
-Phase 2/
-├── Phase_2.py                  # UI layer — all Streamlit code
-├── requirements.txt
-├── .env                        # Your OpenAI API key goes here (not committed)
-├── .gitignore
-├── .streamlit/
-│   └── config.toml             # Dark theme settings
-├── services/                   # Service & data layers
-│   ├── auth_service.py         # Login, registration, user deletion
-│   ├── product_service.py      # Inventory CRUD and sale logging
-│   ├── ai_assistant.py         # OpenAI API wrapper
-│   └── data_store.py           # All JSON file read/write
-└── data/                       # Auto-created on first run
-    ├── users.json
-    ├── products.json
-    ├── sales.json
-    └── chat_logs.json
-```
+### Meaningful CRUD Operations
 
----
+#### **Store Manager:**
+- **Create**: Add new clothing items with name, description, price, stock, and size/category
+- **Read**: View all clothing inventory with detailed information
+- **Update**: Edit existing item details (name, price, stock, description, category)
+- **Delete**: Remove discontinued clothing items
 
-## Setup
+#### **Sales Associate:**
+- **Read**: View clothing catalog (read-only)
+- **Logging Sales**: Records sales which automatically decrease stock
+- **Inventory Assistant**: Pre-built AI responses to common inventory questions
 
-### 1. Clone the repo and enter the Phase 2 folder
+### Design & Layout
+- **Organized Containers**: Uses `st.container(border=True)` for visual separation
+- **Responsive Layout**: Column-based layouts for optimal viewing
+- **Visual Hierarchy**: Headers, subheaders, dividers, and color-coded status indicators
+- **Intuitive Navigation**: Tabs, buttons, and sidebar organization
+- **Color-Coded Stock Status**: Green (adequate) Yellow (warning) Red (critical low)
+## Phase 1: Simulated AI Assistant
 
+The Inventory Assistant includes **5 hardcoded responses** for common questions:
+
+1. **"What items are low on stock?"** → Lists items with stock < 5
+2. **"How many items in stock?"** → Displays all products with current stock levels
+3. **"What is the total inventory value?"** → Calculates total value of all inventory
+4. **"When do we need to restock?"** → Provides restock recommendations
+5. **Other questions** → Helpful prompt for supported queries
+
+## Getting Started
+
+### Installation
 ```bash
-git clone <your-repo-url>
-cd "Mid_Final Project/Phase 2"
-```
-
-### 2. Create and activate a virtual environment
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-### 3. Install dependencies
-
-```bash
+# Install required package
 pip install -r requirements.txt
 ```
 
-### 4. Add your OpenAI API key
-
-Open `.env` and replace the placeholder:
-
-```
-OPENAI_API_KEY="your-actual-api-key-here"
-```
-
-> The `.env` file is excluded from git via `.gitignore` — your key is never committed.
-
-### 5. Run the app
-
+### Running the Application
 ```bash
-streamlit run Phase_2.py
+streamlit run app.py
 ```
 
-The app will open at `http://localhost:8501`. The `data/` folder and all JSON files are created automatically on first run.
+The app will open in your browser at `http://localhost:8501`
 
----
+## 👤 Demo Credentials
 
-## Demo Credentials
+### Store Manager
+- **Username**: `owner`
+- **Password**: `owner123`
 
-| Role | Username | Password |
-|---|---|---|
-| Manager | `owner` | `owner123` |
-| Associate | `employee` | `emp123` |
+### Sales Associate
+- **Username**: `employee`
+- **Password**: `emp123`
 
----
+## Data Files & Storage
 
-## AI Assistant Notes
-
-- The AI assistant is powered by `gpt-3.5-turbo` via the OpenAI API.
-- The system message injects live JSON from `products.json` and `sales.json` so the model answers questions about the actual store inventory, not generic made-up data.
-- Manager role receives both inventory and sales context; associate role receives inventory only.
-- If no API key is set, the AI tab will display a configuration warning instead of erroring out.
-
----
-
-## Phase 1 Issues Fixed
-
-| Phase 1 Problem | Phase 2 Fix |
-|---|---|
-| All code in one file | Split into 4-file layered architecture |
-| Plaintext passwords | SHA-256 hashing via `hashlib` |
-| ID collisions after deletes | `max() + 1` ID generation |
-| Sales total computed in UI | Computed in `product_service.log_sale()` |
-| Stale widget state per product | Single `editing_product_id` session key |
-| Fake/hardcoded AI responses | Real OpenAI API with live context |
-| No delete confirmation | Two-step confirm pattern |
-| No last-manager guard | Guard in `AuthService.delete_user()` |
-
----
-
-## Requirements
+Data is stored as JSON files in the `data/` directory:
 
 ```
-streamlit
-openai
-python-dotenv
+data
+users.json = User accounts
+products.json = Product inventory
 ```
 
-Python 3.9+ recommended.
+Files are auto-created on first run with demo accounts and sample products.
+
+
+## User Interface Components
+
+### Authentication Page
+- Two-column layout with Login and Registration forms
+- Demo credentials display
+- Form validation and error messages
+
+### Store Manager Dashboard
+- **Manage Products Tab**: View, edit, and delete clothing items
+- **Add Product Tab**: Create new clothing items with form inputs
+- **Inventory Overview Tab**: Summary metrics and low-stock alerts
+
+### Sales Associate Dashboard
+- **View Catalog Tab**: Browse all clothing items with stock indicators
+- **Log Sale Tab**: Record sales with automatic stock reduction
+- **Inventory Assistant Tab**: AI-powered inventory queries
+
+
+The app stores two types of objects:
+
+**User**: `id`, `username`, `password`, `role`, `email`
+
+**Product**: `id`, `name`, `description`, `price`, `stock`, `category`
+
+## Security Notes
+
+**Phase 1 Implementation**: This is a simulation with plaintext password storage for educational purposes.
+
+### Demo Credentials (Pre-loaded)
+```
+Store Manager:
+  Username: owner
+  Password: owner123
+  
+Sales Associate:
+  Username: employee
+  Password: emp123
+```
+
+### Known Limitations:
+- Passwords stored in plaintext — not secure, will use hashing in Phase 2
+- File-based JSON storage (not concurrent-safe)
+- Single-user per session (not designed for multi-user production use)
